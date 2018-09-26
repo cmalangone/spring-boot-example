@@ -33,17 +33,23 @@ mvn spring-boot:run
 ```
 
 ## Welcome page
+The root shows a welcome page
+```bash
 http://localhost:8080
+```
 
 ## REST API example
+Retrieve the list of the people
 ```bash
 curl --request GET http://localhost:8080/api/people
 ```
 
+Query by person id
 ```bash
 curl --request GET http://localhost:8080/api/person/101
 ```
 
+Add a list of people
 ```bash
 curl --header "Content-Type: application/json" --request POST -d '{  
    "person":[     {
@@ -61,6 +67,8 @@ curl --header "Content-Type: application/json" --request POST -d '{
 }' http://localhost:8080/api/addpeople
 ```
 
+Update the info for a list of people
+
 ```bash
 curl --header "Content-Type: application/json" --request PUT \
 -d '{  
@@ -74,6 +82,7 @@ curl --header "Content-Type: application/json" --request PUT \
 }' http://localhost:8080/api/updatepeople
 ```
 
+Delete a list of people by ids
 ```bash
 curl --header "Content-Type: application/json" --request DELETE \
 -d '{  
