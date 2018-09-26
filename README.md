@@ -39,7 +39,7 @@ http://localhost:8080
 ```
 
 ## REST API example
-Retrieve the list of the people
+Retrieve the list of people
 ```bash
 curl --request GET http://localhost:8080/api/people
 ```
