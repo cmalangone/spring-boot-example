@@ -14,7 +14,7 @@ H2 (in memory db)<br>
 This project is built with Maven (http://maven.apache.org) so make sure you have an up-to-date installation of Maven
 before proceeding.
 
-Clone this project, change to the root SDO directory and run
+Clone this project, change to the root spring-boot-example directory and run
 
 ```bash
 mvn clean install
