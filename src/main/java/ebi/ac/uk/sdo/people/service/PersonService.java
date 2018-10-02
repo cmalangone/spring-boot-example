@@ -8,6 +8,7 @@ import ebi.ac.uk.sdo.people.model.Person;
 import ebi.ac.uk.sdo.people.repository.PersonRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import ebi.ac.uk.sdo.people.controller.exception.ResourceNotFoundException;
 
 import java.util.List;
 import java.util.Optional;
@@ -90,4 +91,13 @@ public class PersonService  {
         }
         return saveResult;
     }
+    
+    public Person find(Long id) {
+    return personRepository.findById(id)
+            .orElseThrow(() -> new ResourceNotFoundException());
+    }        
+ 
+   public List<Person> findAll() {
+       return personRepository.findAll();
+   }      
 }

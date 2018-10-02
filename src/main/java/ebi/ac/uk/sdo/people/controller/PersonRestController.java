@@ -1,7 +1,5 @@
 package ebi.ac.uk.sdo.people.controller;
 
-import ebi.ac.uk.sdo.people.controller.exception.ResourceNotFoundException;
-
 import ebi.ac.uk.sdo.people.model.Person;
 import ebi.ac.uk.sdo.people.repository.PersonRepository;
 import ebi.ac.uk.sdo.people.service.PersonService;
@@ -19,14 +17,11 @@ import java.util.Map;
 @RestController
 @RequestMapping("/api")
 public class PersonRestController {
-    private PersonRepository personRepository;
 
     private PersonService personService;
 
     @Autowired
-    PersonRestController(PersonRepository repository,
-                         PersonService personService) {
-        this.personRepository = repository;
+    PersonRestController(PersonService personService) {
         this.personService = personService;
     }
 
@@ -37,7 +32,7 @@ public class PersonRestController {
      */
     @RequestMapping("/people")
     List<Person> all() {
-        return personRepository.findAll();
+        return personService.findAll();
     }
 
 
@@ -48,8 +43,7 @@ public class PersonRestController {
      */
     @GetMapping("/person/{id}")
     Person one(@PathVariable Long id) {
-        return personRepository.findById(id)
-                .orElseThrow(() -> new ResourceNotFoundException());
+        return personService.find(id);
     }
 
     /**

@@ -10,15 +10,13 @@ import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import java.util.List;
 import java.util.Optional;
 
-@RepositoryRestResource
+@Repository
 public interface PersonRepository extends JpaRepository<Person, Long> {
 
     Optional<Person> findById(Long id);
 
-    @RestResource(exported=false)
     List<Person> findByFirstName(String firstName);
 
-    @RestResource(exported=false)
     List<Person> findByLastName(String lastName);
 
     Person findByFirstNameAndLastNameAndAge(String firstName, String lastName, Integer age);
